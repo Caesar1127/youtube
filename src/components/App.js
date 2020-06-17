@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SearchBar from "./SearchBar";
 import youtube from "../api/youtube";
 import VideoList from "./VideoList";
+import VideoDetail from "./VideoDetail";
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -33,6 +34,7 @@ export default class App extends Component {
     return (
       <div className="ui container">
         <SearchBar onSubmit={this.submitSearch} />
+        <VideoDetail video={this.state.selectedVideo} />
         <VideoList
           videos={this.state.videos}
           selectedVideo={this.selectedVideo}

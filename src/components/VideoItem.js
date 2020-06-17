@@ -5,7 +5,7 @@ export default function VideoItem({ video, selectedVideo }) {
     <div
       className="item video-item"
       onClick={(e) => {
-        selectedVideo(video.snippet.title);
+        selectedVideo(video);
       }}>
       <img
         src={video.snippet.thumbnails.medium.url}
