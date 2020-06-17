@@ -10,6 +10,9 @@ export default class App extends Component {
     this.submitSearch = this.submitSearch.bind(this);
     this.selectedVideo = this.selectedVideo.bind(this);
   }
+  componentDidMount() {
+    this.submitSearch("Recent News");
+  }
   submitSearch(term) {
     const KEY = "AIzaSyD7Oct92k6JCl_rQLk_BkVGpVdyoIoZDPI";
     youtube
@@ -34,11 +37,19 @@ export default class App extends Component {
     return (
       <div className="ui container">
         <SearchBar onSubmit={this.submitSearch} />
-        <VideoDetail video={this.state.selectedVideo} />
-        <VideoList
-          videos={this.state.videos}
-          selectedVideo={this.selectedVideo}
-        />
+        <div className="ui grid">
+          <div className="ui row">
+            <div className="eleven wide column">
+              <VideoDetail video={this.state.selectedVideo} />
+            </div>
+            <div className="five wide column">
+              <VideoList
+                videos={this.state.videos}
+                selectedVideo={this.selectedVideo}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

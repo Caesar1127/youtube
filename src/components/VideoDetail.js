@@ -2,14 +2,18 @@ import React from "react";
 
 export default function VideoDetail({ video }) {
   if (!video) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <h3>Select a Video from the video list</h3>
+      </div>
+    );
   }
   return (
     <div>
       <div className="ui embed">
         <iframe
           src={`https://www.youtube.com/embed/${video.id.videoId}`}
-          title={video.snippet.title}
+          title="YT Video Player"
         />
       </div>
       <div className="ui segment">
